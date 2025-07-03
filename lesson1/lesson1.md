@@ -1,6 +1,6 @@
 # Lesson 1: Introduction to C Programming
 
-## 📌 What is C?
+## What is C?
 
 C is a **general-purpose, procedural programming language** developed in the early 1970s by **Dennis Ritchie** at **Bell Labs**. It has influenced many modern languages like C++, Java, and Python.
 
@@ -10,7 +10,7 @@ C is known for:
 * High **performance**
 * Being the **foundation** of many operating systems (including UNIX and Linux)
 
-## 🕰️ Brief History
+## Brief History
 
 * **1972**: C was developed as an improvement over B (another early language).
 * **1978**: The famous book *"The C Programming Language"* by Brian Kernighan and Dennis Ritchie was published — often called *K\&R C*.
@@ -36,7 +36,7 @@ gcc main.c -o main
 
 ---
 
-## 🧪 My First C Program
+## First C Program
 
 ```c
 #include <stdio.h>
