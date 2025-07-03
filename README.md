@@ -1,4 +1,4 @@
-# 📘 C Learn
+# C Learn
 
 Welcome to **C Learn** — a personal documentation and learning repository for the C programming language.  
 This repository is built as I study C, step by step, by writing lessons, code examples, and explanations to reinforce what I learn.
