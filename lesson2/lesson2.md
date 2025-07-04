@@ -134,11 +134,50 @@ The `char` type is used to store a **single character** such as a letter, digit,
 
 int main() {
     char grade = 'A';
-    printf("My grade is %c", grade);  // Output: My grade is A
-
+    printf("My grade is %c", grade); 
     char initial = 'J';
-    printf("\nMy name starts with %c", initial);  // Output: My name starts with J
+    printf("\nMy name starts with %c", initial); 
 
     return 0;
 }
 ```
+
+## Strings(**char[]**)
+In c programming language, we can achive the same behaviour of a string if we use an array of characters.
+In order to create an array, the variable is defined as an array of it's type using brackets("**[]**", in this case its **char name[]**) after its name, and using double quotes to wrap up the value: **char name[] = "name";**
+
+The format specifier for strings is: **%s**
+example:
+```c
+#include <stdio.h>
+
+int main(){
+
+    // To create a string we use an array of chars.
+    char name[] = "yannickRafael";
+    printf("Hello, my name is %s", name);
+
+    
+
+    return 0;
+}
+```
+
+## Bool(**bool**)
+It can be either true(or 1) or false(or 0).
+To use this data type we have to include **<stdbool.h>**
+The format specifier for this is **%d**
+ example:
+ ```c
+ #include <stdio.h>
+ #include <stdbool.h>
+
+ int main(){
+
+    bool isOnline = false;
+
+    printf("%d", isOnline);
+
+    return 0;
+ }
+ ```

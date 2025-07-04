@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdbool.h>
+
 int main(){
 
     // Integer
@@ -21,7 +23,22 @@ int main(){
     printf("It's freezing here. It's %f degrees celcius\n", temperature);
 
     float doubletemperature = -101.67;
-    printf("It's freezing here. It's %.15lf degrees celcius", doubletemperature);
+    printf("It's freezing here. It's %.15lf degrees celcius\n", doubletemperature);
+
+    //Char
+    char grade = 'A';
+    printf("My grade is %c\n", grade);
+
+    char initial = 'J';
+    printf("My name starts with %c\n", initial); 
+
+    // String
+    char name[] = "yannickRafael";
+    printf("Hello, my name is %s. Yeah, %s\n", name, name);
+
+    //Bool
+    bool isOnline = true;
+    printf("%d", isOnline);
 
     return 0;
 }
