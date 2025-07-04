@@ -18,7 +18,7 @@ The `scanf()` function reads input from the keyboard (stdin) and stores it in **
 scanf("format_specifier", &variable);
 ```
 
-> 🔸 Always use `&` (address-of operator) **except for strings**, because `scanf()` needs the **address** of the variable to modify its value.
+> Always use `&` (address-of operator) **except for strings**, because `scanf()` needs the **address** of the variable to modify its value.
 
 ---
 
@@ -93,7 +93,7 @@ int main() {
 }
 ```
 
-**⚠️ Warning:** `scanf("%s", ...)` reads only one word. For full names or strings with spaces, use `fgets()` instead.
+**Warning:** `scanf("%s", ...)` reads only one word. For full names or strings with spaces, use `fgets()` instead.
 
 ---
 
@@ -124,7 +124,7 @@ int main() {
 
 ---
 
-## Challenge 🧠
+## Challenge
 
 Write a program that asks the user for:
 
