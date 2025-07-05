@@ -2,12 +2,12 @@
 #include <string.h>
 
 int main() {
-    char name[100];
+    char name1[100];
     int age1;
     float height;
 
     printf("Enter your full name: ");
-    fgets(name, sizeof(name), stdin);
+    fgets(name1, sizeof(name1), stdin);
 
     printf("Enter your age: ");
     scanf("%d", &age1);
@@ -16,7 +16,7 @@ int main() {
     scanf("%f", &height);
 
     printf("\n--- User Information ---\n");
-    printf("Name  : %s", name); 
+    printf("Name  : %s", name1); 
     printf("Age   : %d years\n", age1);
     printf("Height: %.2f meters\n", height);
 
