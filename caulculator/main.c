@@ -29,9 +29,10 @@ int main(){
         result = n1 * n2;
         break;
     case '/':
-        /*if(n2==0){
-            
-        }*/
+        if(n2==0){
+            printf("You can't devide by zero\n");
+            break;
+        }
         result = n1 / n2;
         break;
     default:
