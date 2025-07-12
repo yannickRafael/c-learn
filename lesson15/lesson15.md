@@ -1,16 +1,16 @@
-# Lesson 15: Arrays in C
+# Lesson 15: Arrays in C (1D & 2D)
 
 ---
 
 ## What is an Array?
 
-> An **array** is a collection of variables of the **same type**, stored **contiguously in memory** and accessed using an **index**.
+> An **array** is a collection of **elements of the same type**, stored **contiguously in memory** and accessed using an **index**.
 
-You can think of an array as a **list of items**.
+Arrays let you store and manage multiple values **under one name**, instead of creating individual variables.
 
 ---
 
-## Array Syntax
+## Array Syntax (1D)
 
 ```c
 type name[size];
@@ -22,12 +22,12 @@ type name[size];
 int numbers[5];
 ```
 
-* This declares an array of 5 integers.
-* Elements are accessed from index `0` to `4`.
+* Declares an array of 5 integers
+* Indexing starts from `0` to `4`
 
 ---
 
-## Initializing Arrays
+## Initializing a 1D Array
 
 ### Manual Initialization
 
@@ -38,18 +38,18 @@ int scores[3] = {90, 80, 70};
 ### Partial Initialization
 
 ```c
-int scores[5] = {1, 2};  // Remaining elements become 0
+int scores[5] = {1, 2};  // Remaining become 0
 ```
 
 ### Implicit Size
 
 ```c
-int scores[] = {100, 98, 95};  // Size is inferred to be 3
+int scores[] = {100, 98, 95};  // Compiler counts size (3)
 ```
 
 ---
 
-## Accessing Array Elements
+##  Accessing Array Elements
 
 ```c
 int numbers[3] = {10, 20, 30};
@@ -58,13 +58,56 @@ printf("%d", numbers[0]); // prints 10
 numbers[2] = 99;          // changes 3rd element to 99
 ```
 
-> **Indexing starts at 0** in C
+> Always remember: **Indexing starts at 0** in C.
 
 ---
 
-## Looping Through Arrays
+## User Input: Initialize a 1D Array
 
-### Example: Print all elements
+```c
+#include <stdio.h>
+
+int main() {
+    int values[5];
+
+    printf("Enter 5 integers:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Value %d: ", i);
+        scanf("%d", &values[i]);
+    }
+
+    printf("You entered:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", values[i]);
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 🧹 Clearing a 1D Array
+
+### Method 1: At Declaration
+
+```c
+int values[5] = {0};  // All elements are set to 0
+```
+
+### Method 2: Manually
+
+```c
+for (int i = 0; i < 5; i++) {
+    values[i] = 0;
+}
+```
+
+Useful to **reset** array before reuse or to avoid random leftover values in memory.
+
+---
+
+## Looping Through a 1D Array
 
 ```c
 for (int i = 0; i < 5; i++) {
@@ -74,22 +117,65 @@ for (int i = 0; i < 5; i++) {
 
 ---
 
-## Example: Store and Print 5 Grades
+## Multi-Dimensional Arrays (2D Arrays)
+
+> A **2D array** is like a table: rows and columns.
+> It's declared as an array of arrays.
+
+### Syntax:
+
+```c
+type name[rows][columns];
+```
+
+### Example:
+
+```c
+int matrix[2][3]; // 2 rows × 3 columns
+```
+
+---
+
+## Initializing a 2D Array
+
+```c
+int table[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+```
+
+Or:
+
+```c
+int table[2][3] = {1, 2, 3, 4, 5, 6};
+```
+
+---
+
+## User Input: Initialize a 2D Array
 
 ```c
 #include <stdio.h>
 
 int main() {
-    int grades[5];
+    int table[2][3];
 
-    for (int i = 0; i < 5; i++) {
-        printf("Enter grade %d: ", i + 1);
-        scanf("%d", &grades[i]);
+    printf("Enter 6 numbers (2x3 table):\n");
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &table[i][j]);
+        }
     }
 
     printf("You entered:\n");
-    for (int i = 0; i < 5; i++) {
-        printf("Grade %d: %d\n", i + 1, grades[i]);
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", table[i][j]);
+        }
+        printf("\n");
     }
 
     return 0;
@@ -98,21 +184,28 @@ int main() {
 
 ---
 
-## Array Size
-
-There’s no built-in way to get the size of an array **at runtime**, but you can compute the number of elements:
+## Clearing a 2D Array
 
 ```c
-int arr[10];
-int size = sizeof(arr) / sizeof(arr[0]); // 10
+int table[2][3] = {0};  // Sets all to 0
+```
+
+Or manually:
+
+```c
+for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 3; j++) {
+        table[i][j] = 0;
+    }
+}
 ```
 
 ---
 
 ## Common Mistakes
 
-| Mistake                             | Why It’s Wrong                       |
-| ----------------------------------- | ------------------------------------ |
-| Accessing `arr[5]` in `arr[5]`      | Index out of bounds (0–4 only valid) |
-| Using different types in same array | Arrays must be **one type only**     |
-| Forgetting array indices start at 0 | May cause logic or access errors     |
+| Mistake                                 | Why It’s Wrong                      |
+| --------------------------------------- | ----------------------------------- |
+| Accessing out-of-bounds index           | Causes undefined behavior           |
+| Mixing data types in one array          | Not allowed — must be one type only |
+| Forgetting that array index starts at 0 | Leads to logic bugs                 |
