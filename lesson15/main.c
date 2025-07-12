@@ -1,34 +1,37 @@
 #include <stdio.h>
 
+#define STUDENTS 3
+#define SUBJECTS 4
+
 int main() {
-    int numbers[5];
-    int sum = 0;
-    int max;
+    int grades[STUDENTS][SUBJECTS];
+    int sum, max;
 
-    // Input numbers
-    printf("Enter 5 integers:\n");
-    for (int i = 0; i < 5; i++) {
-        printf("Number %d: ", i + 1);
-        scanf("%d", &numbers[i]);
-        sum += numbers[i];
-    }
-
-    // Initialize max with the first element
-    max = numbers[0];
-
-    // Find the maximum value
-    for (int i = 1; i < 5; i++) {
-        if (numbers[i] > max) {
-            max = numbers[i];
+    // Input
+    for (int i = 0; i < STUDENTS; i++) {
+        printf("Enter grades for Student %d:\n", i + 1);
+        for (int j = 0; j < SUBJECTS; j++) {
+            printf("Subject %d: ", j + 1);
+            scanf("%d", &grades[i][j]);
         }
     }
 
-    // Calculate average
-    float average = sum / 5.0;
+    // Processing and Output
+    for (int i = 0; i < STUDENTS; i++) {
+        sum = 0;
+        max = grades[i][0];
 
-    // Output
-    printf("\nMaximum = %d\n", max);
-    printf("Average = %.2f\n", average);
+        for (int j = 0; j < SUBJECTS; j++) {
+            sum += grades[i][j];
+            if (grades[i][j] > max) {
+                max = grades[i][j];
+            }
+        }
+
+        float average = sum / (float) SUBJECTS;
+
+        printf("\nStudent %d: Average = %.2f, Highest = %d\n", i + 1, average, max);
+    }
 
     return 0;
 }
